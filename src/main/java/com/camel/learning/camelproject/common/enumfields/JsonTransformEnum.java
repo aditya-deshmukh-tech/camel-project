@@ -2,12 +2,11 @@ package com.camel.learning.camelproject.common.enumfields;
 
 public enum JsonTransformEnum {
 
-    MED_TITLE("med_title"),
-    MED_DESC("med_desc"),
-    MED_CONTENTS("med_contents"),
-    MED_IMG_URL("med_img_url"),
-    MED_SYMPTOMS("med_symptoms");
-
+    TITLE_ITEM("item_title"),
+    DESC_ITEM("item_desc"),
+    PRICE_ITEM("item_price"),
+    IMG_ITEM("item_img_url"),
+    FEATURES_ITEM("item_features");
     public String field;
 
     JsonTransformEnum(String field) {

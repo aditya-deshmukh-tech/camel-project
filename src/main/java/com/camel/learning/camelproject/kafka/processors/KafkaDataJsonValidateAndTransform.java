@@ -5,7 +5,7 @@ import org.apache.camel.Processor;
 import org.springframework.stereotype.Component;
 
 @Component
-public class KafkaMedicinesJsonValidateAndTransform implements Processor {
+public class KafkaDataJsonValidateAndTransform implements Processor {
 
     @Override
     public void process(Exchange exchange) throws Exception {

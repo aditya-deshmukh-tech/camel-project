@@ -4,24 +4,23 @@ import com.camel.learning.camelproject.common.enumfields.JsonInputDataEnum;
 import com.camel.learning.camelproject.common.enumfields.JsonTransformEnum;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
-
 import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class ActiveMQMedicinesJsonValidateAndTransform implements Processor {
+public class ActiveMQDataJsonValidateAndTransform implements Processor {
 
     @Override
     public void process(Exchange exchange) throws Exception {
 
         Map<String, Object> inputData = (Map<String, Object>) exchange.getIn().getBody();
         Map<String, Object> transformData = new HashMap<>();
-        transformData.put(JsonTransformEnum.MED_TITLE.field, getString(inputData, JsonInputDataEnum.TITLE_MED.field));
-        transformData.put(JsonTransformEnum.MED_DESC.field, getString(inputData, JsonInputDataEnum.DESC_MED.field));
-        transformData.put(JsonTransformEnum.MED_CONTENTS.field, getStringsArray(inputData, JsonInputDataEnum.COMP_MED.field));
-        transformData.put(JsonTransformEnum.MED_IMG_URL.field, getString(inputData, JsonInputDataEnum.IMG_URL_MED.field));
-        transformData.put(JsonTransformEnum.MED_SYMPTOMS.field, getStringsArray(inputData, JsonInputDataEnum.SYMPTOMS_MED.field));
+        transformData.put(JsonTransformEnum.TITLE_ITEM.field, getString(inputData, JsonInputDataEnum.ITEM_NAME.field));
+        transformData.put(JsonTransformEnum.DESC_ITEM.field, getString(inputData, JsonInputDataEnum.ITEM_DESC.field));
+        transformData.put(JsonTransformEnum.IMG_ITEM.field, getStringsArray(inputData, JsonInputDataEnum.ITEM_IMG.field));
+        transformData.put(JsonTransformEnum.PRICE_ITEM.field, getString(inputData, JsonInputDataEnum.ITEM_PRICE.field));
+        transformData.put(JsonTransformEnum.FEATURES_ITEM.field, getStringsArray(inputData, JsonInputDataEnum.ITEM_FEATURES.field));
         exchange.getIn().setBody(transformData);
     }
 

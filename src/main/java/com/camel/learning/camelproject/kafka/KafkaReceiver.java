@@ -3,11 +3,11 @@ package com.camel.learning.camelproject.kafka;
 import com.camel.learning.camelproject.common.AbstractQueueConsumerRoute;
 import com.camel.learning.camelproject.common.models.AbstractQueueConsumerParams;
 import com.camel.learning.camelproject.common.processors.AbstractErrMsgProcessor;
-import com.camel.learning.camelproject.kafka.processors.KafkaMedicinesJsonValidateAndTransform;
+import com.camel.learning.camelproject.kafka.processors.KafkaDataJsonValidateAndTransform;
 import org.apache.camel.Processor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+
 import java.util.concurrent.TimeoutException;
 
 
@@ -15,10 +15,10 @@ import java.util.concurrent.TimeoutException;
 public class KafkaReceiver extends AbstractQueueConsumerRoute {
 
     @Autowired
-    private AbstractErrMsgProcessor abstractErrMsgProcessor;
+    private KafkaDataJsonValidateAndTransform kafkaDataJsonValidateAndTransform;
 
     @Autowired
-    private KafkaMedicinesJsonValidateAndTransform kafkaMedicinesJsonValidateAndTransform;
+    private AbstractErrMsgProcessor abstractErrMsgProcessor;
 
     @Value("${kafka.autoStart}")
     private boolean autoStartState;
@@ -46,7 +46,7 @@ public class KafkaReceiver extends AbstractQueueConsumerRoute {
 
     @Override
     public Processor getValidationAndTransformProcessor() {
-        return kafkaMedicinesJsonValidateAndTransform;
+        return kafkaDataJsonValidateAndTransform;
     }
 
     @Override

@@ -2,11 +2,11 @@ package com.camel.learning.camelproject.common.enumfields;
 
 public enum JsonInputDataEnum {
 
-    TITLE_MED("titleMed"),
-    DESC_MED("descMed"),
-    COMP_MED("compositionMed"),
-    IMG_URL_MED("imgUrlMed"),
-    SYMPTOMS_MED("symptomsMed")
+    ITEM_NAME("itemName"),
+    ITEM_DESC("itemDesc"),
+    ITEM_PRICE("itemPrice"),
+    ITEM_IMG("itemImg"),
+    ITEM_FEATURES("itemFeatures")
     ;
 
     public final String field;
